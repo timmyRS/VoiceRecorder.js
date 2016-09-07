@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>VoiceRecorder.js Example</title>
+</head>
+<body>
+	<p id="info"></p>
+	<button id="start" onclick="startRecording();">Record</button>
+	<button id="stop" disabled="disabled" onclick="stopRecording();">Stop</button>
+	<script src="https://cdn.netdex.co/jQuery.js"></script>
+	<script src="VoiceRecorder.js"></script>
+	<script>
+		var recorder;
+
+		// Page loaded - Create Recorder
+		document.addEventListener("DOMContentLoaded", function()
+		{
+			recorder = new VoiceRecorder();
+		});
+
+		// Start recording
+		function startRecording()
+		{
+			recorder.start(function(status)
+			{
+				if(status == "OK")
+				{
+					$("#start").attr("disabled", "disabled");
+					$("#stop").removeAttr("disabled");
+				}
+			});
+		}
+
+		// Stop recording
+		function stopRecording()
+		{
+			recorder.get(function(blob)
+			{
+				$("#stop").attr("disabled", "disabled");
+				reader = new FileReader();
+				reader.onload = function()
+				{
+					window.open(this.result.replace("data:;", "data:audio/wav;"));
+				}
+				reader.readAsDataURL(blob);
+				$("#start").removeAttr("disabled");
+			}).stop();
+		}
+	</script>
+</body>
+</html>
