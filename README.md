@@ -4,7 +4,7 @@ A simple javascript, that allows you to record the user's microphone. I made thi
 
 ## Usage
 
-Note that there is [an example](https://github.com/timmyrs/projects/blob/master/VoiceRecorder/index.html) that you can even [try live](https://timmyrs.github.io/VoiceRecorder.js) if you don't like reading documentations.
+Note that there is [an example](https://github.com/timmyrs/VoiceRecorder.js/blob/master/index.html) that you can even [try live](https://timmyrs.github.io/VoiceRecorder.js) if you don't like reading documentations.
 
 ### **Creating** An Instance
 
